@@ -1,0 +1,26 @@
+.xian{
+	border:3px solid silver;
+	height: 100px;
+	width: 200px;
+	margin: 0 auto;
+	background: dimgray;
+}
+.fuhao{
+	text-align: right;
+	font-size: 40px;
+}
+.anj{
+	display: flex;
+	border: 3px solid silver;
+	height: 200px;
+	width: 200px;
+	margin: 0 auto;
+	flex-wrap: wrap;
+}
+button{
+	height: 50px;
+	width: 40px;
+}
+.chongz{
+	width: 100px;
+}

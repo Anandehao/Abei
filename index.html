@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>计算器</title>
+		<link rel="stylesheet" href="css/index.css " type="text/css" />
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="xian">
+				<div v-if="fu">{{nee}}</div>
+				<div class="fuhao" v-if="fu">{{df}}</div>
+			    <div>{{counter}}</div>
+			
+			</div>
+			<div class="anj">
+				<button v-on:click="one">1</button>
+				<button v-on:click="two">2</button>
+				<button v-on:click="three">3</button>
+				<button v-on:click="four">4</button>
+				<button v-on:click="five">5</button>
+				<button v-on:click="six">6</button>
+				<button v-on:click="seven">7</button>
+				<button v-on:click="eight">8</button>
+				<button v-on:click="night">9</button>
+				<button v-on:click="zero">0</button>
+				<button v-on:click="add">+</button>
+			    <button v-on:click="sub">-</button>
+			    <button v-on:click="cheng">*</button>
+				<button v-on:click="chu">/</button>
+				<button v-on:click="deng">=</button>
+			    <button class="chongz" v-on:click="chongz">重置</button>
+				<button class="chongz" v-on:click="delet">删除</button>
+		    </div>
+		</div>
+		<script>
+			const app=new Vue({
+				el:'#app',
+				data:{
+					counter:0,
+					nee:0,
+					fu:false,
+					de:false,
+					df:"",
+					demo:0
+				},
+				methods:{
+					one:function(){
+						this.counter=this.counter*10+1;
+					},
+					two:function(){
+						this.counter=this.counter*10+2;
+					},
+					three:function(){
+						this.counter=this.counter*10+3;
+					},
+					four:function(){
+						this.counter=this.counter*10+4;
+					},
+					five:function(){
+						this.counter=this.counter*10+5;
+					},
+					six:function(){
+						this.counter=this.counter*10+6;
+					},
+					seven:function(){
+						this.counter=this.counter*10+7;
+					},
+					eight:function(){
+						this.counter=this.counter*10+8;
+					},
+					night:function(){
+						this.counter=this.counter*10+9;
+					},
+					zero:function(){
+						this.counter=this.counter*10+0;
+					},
+					cheng:function(){
+						this.nee=this.counter;
+						this.counter=0;
+						this.df="*";
+						this.fu=true;
+					},
+					chu:function(){
+						this.nee=this.counter;
+						this.counter=0;
+						this.fu=true;
+						this.df="/";
+					},
+					add:function(){
+						this.nee=this.counter;
+						this.counter=0;
+						this.fu=true;
+						this.df="+";
+					},
+					sub:function(){
+						this.nee=this.counter;
+						this.counter=0;
+						this.fu=true;
+						this.df="-";
+					},
+					chongz:function(){
+						this.counter=0;
+						this.nee=0;
+						this.fu=false;
+						this.demo=0;
+						this.de=false;
+					},
+					delet:function(){
+						this.counter=(this.counter/10)-(this.counter%10/10);
+						
+					},
+					deng(){
+						if(this.df=="*"){
+							this.demo=this.counter*this.nee;
+						}
+						else if(this.df=="/"){
+							this.demo=this.nee/this.counter;
+						}
+						else if(this.df=="+"){
+							this.demo=this.nee+this.counter;
+						}
+						else{
+							this.demo=this.nee-this.counter;
+						}
+						this.counter=this.demo;
+						this.fu=false;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
